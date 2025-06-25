@@ -1,7 +1,5 @@
 "use client";
 
-import { ChevronRight, type LucideIcon } from "lucide-react";
-
 import {
   Collapsible,
   CollapsibleContent,
@@ -21,6 +19,7 @@ import {
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { ChevronRight } from "lucide-react";
 
 export function NavMain({
   items,
@@ -28,7 +27,6 @@ export function NavMain({
   items: {
     title: string;
     url: string;
-    icon: LucideIcon;
     isActive?: boolean;
     items?: {
       title: string;
@@ -49,7 +47,6 @@ export function NavMain({
             <SidebarMenuItem>
               <SidebarMenuButton  asChild tooltip={item.title}>
                 <Link href={item.url} className={cn(pathname === item.url? 'bg-muted text-primary': 'text-muted-foreground')}>
-                  <item.icon />
                   <span>{item.title}</span>
                 </Link>
               </SidebarMenuButton>
