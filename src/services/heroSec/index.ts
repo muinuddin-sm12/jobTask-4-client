@@ -29,7 +29,7 @@ export const getHeroSec = async () => {
       `${process.env.NEXT_PUBLIC_BASE_URL}/hero-section`,
       {
         next: {
-          tags: ["MEAL"],
+          tags: ["HERO"],
         },
       }
     );
