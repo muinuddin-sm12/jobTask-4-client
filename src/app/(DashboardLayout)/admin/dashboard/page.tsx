@@ -1,8 +1,11 @@
+import ContactList from '@/components/module/admin/dashboard'
+import { getAllContacts } from '@/services/contact'
 import React from 'react'
 
-const AdminDashboard = () => {
+const AdminDashboard = async() => {
+  const contactData = await getAllContacts()
   return (
-    <div>AdminDashboard</div>
+    <div><ContactList data={contactData?.data}/></div>
   )
 }
 
