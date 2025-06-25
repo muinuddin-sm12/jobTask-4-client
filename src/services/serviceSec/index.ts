@@ -40,7 +40,7 @@ export const getServices = async () => {
   }
 };
 
-export const updateHeroSec = async (
+export const updateService = async (
   id: string,
   data: Partial<IServiceSection>
 ) => {
@@ -50,6 +50,7 @@ export const updateHeroSec = async (
       {
         method: "PATCH",
         headers: {
+          "Content-Type": "application/json",
           authorization: (await cookies()).get("accessToken")!.value,
         },
         body: JSON.stringify(data),
