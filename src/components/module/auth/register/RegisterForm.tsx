@@ -142,7 +142,7 @@ const RegisterForm = () => {
           <Button
             disabled={passwordConfirm !== "" && password !== passwordConfirm}
             type="submit"
-            className="mt-5 w-full bg-[#4CAF50] hover:bg-[#4bce4f]"
+            className="mt-5 w-full"
           >
             {isSubmitting ? (
               <ImSpinner3 className="animate-spin text-center text-lg flex items-center justify-center" />

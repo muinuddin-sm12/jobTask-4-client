@@ -98,7 +98,7 @@ const Navbar = () => {
               <DropdownMenuTrigger>
                 <Avatar className="cursor-pointer">
                   <AvatarImage
-                    src={`https://robohash.org/muin.pnghttps://api.adorable.io/avatars/285/muin.png`}
+                    src={"/users-icon.png"}
                   />
                   <AvatarFallback>User</AvatarFallback>
                 </Avatar>

@@ -1,6 +1,6 @@
 export interface IHeroSection {
-    title: string;
-    subTitle: string;
-    backgroundImage: string;
-  }
-  
+  _id: string;
+  title: string;
+  subTitle: string;
+  backgroundImage: string;
+}

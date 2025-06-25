@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { IHeroSection } from "@/types/hero";
 
 const HeroSection = ({ data }: { data: IHeroSection[] }) => {
-  console.log(data);
+  // console.log(data);
   return (
     <div className="relative h-[80vh] flex items-center justify-center overflow-hidden">
       <div

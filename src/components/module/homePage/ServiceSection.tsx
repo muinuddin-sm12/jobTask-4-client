@@ -26,7 +26,7 @@ const ServiceSection = ({data} : {data: IServiceSection[]}) => {
             key={index}
           >
             <div className="flex items-center mb-3">
-              <h1 className="text-2xl font-[700]">{d.title}</h1>
+              <h1 className="text-xl font-[700]">{d.title}</h1>
             </div>
             <p className="text-gray-600">{d.description}</p>
           </motion.div>

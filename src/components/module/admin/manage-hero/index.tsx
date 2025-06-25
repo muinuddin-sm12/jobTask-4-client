@@ -1,31 +1,28 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import UpdateServiceModal from "@/components/ui/core/JTModal/UpdateServiceModal";
-import { updateService } from "@/services/serviceSec";
-import { IServiceSection } from "@/types/service";
+import UpdateHeroModal from "@/components/ui/core/JTModal/UpdateHeroModal";
+import { updateHeroSec } from "@/services/heroSec";
+import { IHeroSection } from "@/types/hero";
+import Image from "next/image";
 import React, { useState } from "react";
 import { AiOutlineSelect } from "react-icons/ai";
 import { toast } from "sonner";
 
-const ManageService = ({ data }: { data: IServiceSection[] }) => {
-  // console.log(data);
-  const [selectedService, setSelectedService] =
-    useState<IServiceSection | null>(null);
+const ManageHero = ({ data }: { data: IHeroSection[] }) => {
+  const [selectedService, setSelectedService] = useState<IHeroSection | null>(
+    null
+  );
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleUpdate = (data: IServiceSection) => {
+  const handleUpdate = (data: IHeroSection) => {
     setSelectedService(data);
     setIsModalOpen(true);
   };
-  const handleUpdateConfirm = async (updatedData: {
-    title: string;
-    description: string;
-  }) => {
-    // console.log(updatedData)
+  const handleUpdateConfirm = async (updatedData: FormData) => {
     try {
       if (selectedService?._id) {
-        const res = await updateService(selectedService?._id, updatedData);
-        // console.log(res)
+        const res = await updateHeroSec(selectedService?._id, updatedData);
+        console.log(res);
         if (res.success) {
           toast.success("Service updated successfully");
           setIsModalOpen(false);
@@ -38,12 +35,11 @@ const ManageService = ({ data }: { data: IServiceSection[] }) => {
     }
   };
   return (
-    <div className=" px-6 overflow-hidden md:px-12 lg:px-20 grid grid-cols-1 md:grid-cols-2">
+    <div className=" px-6 overflow-hidden md:px-12 lg:px-20 w-full">
       {data.map((service, index) => (
         <div key={index} className="relative border p-5">
           <div className="">
             <div>
-              <div>Service {index + 1}</div>
               <div className="">
                 <AiOutlineSelect
                   onClick={() => handleUpdate(service)}
@@ -55,21 +51,29 @@ const ManageService = ({ data }: { data: IServiceSection[] }) => {
               <span className="font-bold">Title:</span> {service?.title}
             </h2>
             <p>
-              <span className="font-bold">Description:</span>{" "}
-              {service?.description}
+              <span className="font-bold">SubTitle:</span> {service?.subTitle}
             </p>
+          </div>
+          <div className="h-[250px] mt-8 w-full overflow-hidden">
+            <Image
+              className="h-full w-full bg-center object-cover"
+              src={service.backgroundImage}
+              height={1000}
+              width={1000}
+              alt="backgroundImg"
+            />
           </div>
         </div>
       ))}
 
       {selectedService && (
-        <UpdateServiceModal
+        <UpdateHeroModal
           isOpen={isModalOpen}
           onOpenChange={setIsModalOpen}
           onConfirm={handleUpdateConfirm}
           defaultValues={{
             title: selectedService.title,
-            description: selectedService.description,
+            subTitle: selectedService.subTitle,
           }}
         />
       )}
@@ -77,4 +81,4 @@ const ManageService = ({ data }: { data: IServiceSection[] }) => {
   );
 };
 
-export default ManageService;
+export default ManageHero;

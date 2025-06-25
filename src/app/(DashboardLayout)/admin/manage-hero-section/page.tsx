@@ -1,8 +1,11 @@
+import ManageHero from '@/components/module/admin/manage-hero'
+import { getHeroSec } from '@/services/heroSec'
 import React from 'react'
 
-const ManageHeroSection = () => {
+const ManageHeroSection = async () => {
+  const heroData = await getHeroSec()
   return (
-    <div>ManageHeroSection</div>
+    <div><ManageHero data={heroData?.data}/></div>
   )
 }
 

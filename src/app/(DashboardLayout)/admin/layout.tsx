@@ -13,7 +13,7 @@ export default async function DashboardLayout({
   children: React.ReactNode;
 }) {
   const currentUser = await getCurrentUser();
-  console.log(currentUser)
+  // console.log(currentUser)
 //   const currentUserData = await getWaitUntilPromiseFromEvent(currentUser._id);
   return (
     <SidebarProvider>
