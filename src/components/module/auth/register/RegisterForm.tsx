@@ -127,10 +127,10 @@ const RegisterForm = () => {
               setImageFiles={setImageFiles}
               imagePreview={imagePreview}
               setImagePreview={setImagePreview}
-              className="mt-4"
+              className="mt-4 w-[150px]"
             />
           ) : (
-            <div className="mt-4">
+            <div className="mt-4 w-[150px]">
               <JTImageUploader
                 setImageFiles={setImageFiles}
                 setImagePreview={setImagePreview}
