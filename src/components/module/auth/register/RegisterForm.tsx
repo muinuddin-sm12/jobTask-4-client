@@ -60,9 +60,6 @@ const RegisterForm = () => {
       <div className="flex items-center space-x-4 mb-6">
         <div>
           <h1 className="text-xl font-semibold">Register</h1>
-          <p className="font-light text-sm text-gray-600">
-            Join us today and start your journey!
-          </p>
         </div>
       </div>
       <Form {...form}>
